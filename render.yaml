@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: clientwebsite
+    runtime: node
+    plan: starter
+    region: oregon
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: HOST
+        value: 0.0.0.0
+      - key: VITE_SUPABASE_URL
+        value: https://bbdzywucatlypfisyymi.supabase.co
+      - key: VITE_SUPABASE_PUBLISHABLE_KEY
+        value: sb_publishable_kNh0v5x9bkaIOA_sZ3GdwQ_Bydmi9R-
